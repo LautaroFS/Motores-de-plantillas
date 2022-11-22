@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const PORT = 8090
 
-app.set('views', './views')
+app.set('views', './views/pages')
 app.set('view engine', 'ejs')
 
 app.use(express.json())
@@ -13,6 +13,10 @@ const products = []
 
 
 app.get('/productos', (req, res) => {
+    res.render('stock', { products })
+})
+
+app.get('/stockProd', (req, res) => {
     res.render('inicio', { products })
 })
 
